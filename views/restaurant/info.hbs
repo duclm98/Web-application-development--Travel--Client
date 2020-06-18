@@ -1,0 +1,49 @@
+<div class="hero-wrap js-fullheight" style="background-image: url('{{PLACE.hinhAnh}}');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+            <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="/place/info/{{PLACE._id}}">{{PLACE.ten}}</a></h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+<div class="row">
+    <div class="col-md-5 ftco-animate">
+        <br>
+        <div class="item">
+            <div class="hotel-img" style="background-image: url({{RESTAURANT.hinhAnh}});"></div>
+        </div>
+    </div>
+    <div class="col-md-7 hotel-single mt-4 mb-5 ftco-animate">
+        <h2>{{RESTAURANT.ten}}</h2>
+        <p class="rate mb-5">
+            <span class="loc"><a><i class="icon-map"></i>{{RESTAURANT.diaChi}}</a></span>
+        </p>
+        <div id="moTa1"><p>{{RESTAURANT.moTa}}</p></div><hr>          
+        <div class="d-md-flex mt-5 mb-5">
+            <ul>
+                <h4>Thông tin chi tiết</h4>
+                <div id="comments">            
+                    <li><p>Địa chỉ: {{RESTAURANT.diaChi}}</p></li>      
+                    <li><p>Số điện thoại: {{RESTAURANT.sdt}}</p></li>
+                    <li><p>Email: {{RESTAURANT.email}}</p></li>
+                </div> 
+            </ul>
+            <ul class="ml-md-5">
+                <h4>Giá trung bình</h4>
+                <form id="comments">
+                    <li><p>Giá các món ăn trung bình: {{RESTAURANT.gia}} đồng</p></li>
+                </form>
+            </ul>
+        </div>     
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-7 hotel-single mt-4 mb-5 ftco-animate">
+        <a href="/place/info/{{RESTAURANT.idDiaDanh}}"><h2> Trở về địa danh</h2></a>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+#flex{
+    height: 150px;
+}
+
+#moTa{
+    height: 300px;
+    overflow: auto;
+}
+
+#moTa1{
+    height: 190px;
+    overflow: auto;
+}
+
+#comments{
+    height: 310px;
+    width: 350px;
+    overflow: auto;
+}
+
+#error{
+    color: red;
+}

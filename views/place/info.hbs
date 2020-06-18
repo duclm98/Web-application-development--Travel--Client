@@ -1,0 +1,184 @@
+<div class="hero-wrap js-fullheight" style="background-image: url('{{PLACE.hinhAnh}}');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+            <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Chào mừng bạn đến với<br><strong><a href="#">{{PLACE.ten}}</a></strong></h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+<div class="row">
+    <div class="col-md-5 ftco-animate">
+        <br>
+        <div class="single-slider owl-carousel">
+            <iframe width="560" height="315" src="{{PLACE.video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                     
+        </div>
+        <br>
+        <h4>Chỉ đường</h4>
+        <div class="single-slider owl-carousel">
+            <iframe src="{{PLACE.banDo}}" width="560" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="col-md-7 hotel-single mt-4 mb-5 ftco-animate">
+        <h2>{{PLACE.ten}}</h2>
+        <p class="rate mb-5">
+            <span class="loc"><a><i class="icon-map"></i>{{PLACE.viTri}}</a></span>
+        </p>
+        <div id="moTa1">
+            <p>{{PLACE.moTa}}</p>
+            <h5>Gợi ý khám phá: </h5>
+            <p>{{PLACE.goiY}}</p>
+        </div><hr>          
+        <div class="d-md-flex mt-5 mb-5">
+            <ul>
+                <h4>Đánh giá từ người dùng</h4>
+                <div id="comments">                  
+                    {{#if COMMENTS}}
+                    {{#each COMMENTS}}
+                        <h5>{{this.tenUser}}</h5>
+                        <h6>{{this.email}}</h6>
+                        <p>{{this.nhanXet}}</p>
+                        <hr>
+                    {{/each}}
+                    {{/if}}
+                </div> 
+            </ul>
+            <ul class="ml-md-5">
+                <h4>Đăng nhận xét</h4>
+                <form method="POST" action="/place/comment/{{PLACE._id}}" id="comments">
+                    {{#if user}}
+                        <div class="form-group">
+                            <input type="text" name="nhanXet" class="form-control" placeholder="Nhận xét">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Đăng nhận xét" class="btn btn-primary py-3">
+                        </div>                       
+                        {{else}}
+                            <div class="form-group">
+                                <input type="text" name="tenUser" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="nhanXet" class="form-control" placeholder="Nhận xét">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Đăng nhận xét" class="btn btn-primary py-3">
+                            </div>
+                    {{/if}}
+                </form>
+            </ul>
+        </div>     
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Danh sách khách sạn</h2>
+            </div>
+        </div>
+    </div>    		
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            {{#if HOTELS}}
+                {{#each HOTELS}}
+                    <div class="col-sm col-md-6 col-lg ftco-animate">
+                        <div class="destination">
+                            <a href="/hotel/info/{{this._id}}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{this.hinhAnh}});">
+                                <div class="icon d-flex justify-content-center align-items-center">
+                                    <span class="icon-link"></span>
+                                </div>
+                            </a>
+                            <div class="text p-3">
+                                <div id="flex" class="d-flex">
+                                    <div class="one">
+                                        <h3><a href="/hotel/info/{{this._id}}">{{this.ten}}</a></h3>
+                                        <p>{{this.diaChi}}</p>
+                                        <p class="rate">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star-o"></i>
+                                        </p>
+                                    </div>
+                                    <div class="two">
+                                        <span>{{this.tenDiaDanh}}</span>
+                                    </div>
+                                </div>
+                                <div id="moTa">
+                                    <p>{{this.moTa}}</p>
+                                </div>
+                                <hr>
+                                <p class="bottom-area d-flex">
+                                    <span class="ml-auto"><a href="/hotel/info/{{this._id}}">Chi tiết</a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Danh sách nhà hàng</h2>
+            </div>
+        </div>
+    </div>    		
+        <div class="row">
+            {{#if RESTAURANTS}}
+                {{#each RESTAURANTS}}
+                    <div class="col-sm col-md-6 col-lg ftco-animate">
+                        <div class="destination">
+                            <a href="/restaurant/info/{{this._id}}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{this.hinhAnh}});">
+                                <div class="icon d-flex justify-content-center align-items-center">
+                                    <span class="icon-link"></span>
+                                </div>
+                            </a>
+                            <div class="text p-3">
+                                <div id="flex" class="d-flex">
+                                    <div class="one">
+                                        <h3><a href="/restaurant/info/{{this._id}}">{{this.ten}}</a></h3>
+                                        <p>{{this.diaChi}}</p>
+                                        <p class="rate">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star-o"></i>
+                                        </p>
+                                    </div>
+                                    <div class="two">
+                                        <span>{{this.tenDiaDanh}}</span>
+                                    </div>
+                                </div>
+                                <div id="moTa">
+                                    <p>{{this.moTa}}</p>
+                                </div>
+                                <hr>
+                                <p class="bottom-area d-flex">
+                                    <span class="ml-auto"><a href="/place/restaurant/{{this._id}}">Chi tiết</a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-md-7 hotel-single mt-4 mb-5 ftco-animate">
+        <a href="/"><h2> Trở về trang chủ</h2></a>
+    </div>
+</div>
